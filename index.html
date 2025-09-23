@@ -65,23 +65,27 @@
   <!-- Gallery Section -->
   <section id="gallery" class="fade-in bg-transparent">
     <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center text-white drop-shadow-lg tracking-tight">Gallery</h2>
-    <div class="flex flex-col gap-0">
-      <img src="Cabin3.png" alt="Cabin Gallery 1" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin5.png" alt="Cabin Gallery 2" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin7.png" alt="Cabin Gallery 3" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin10.png" alt="Cabin Gallery 4" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin13.png" alt="Cabin Gallery 5" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin16.png" alt="Cabin Gallery 6" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin19.png" alt="Cabin Gallery 7" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin22.png" alt="Cabin Gallery 8" class="w-full object-cover object-center gallery-img">
-      <img src="Cabin25.png" alt="Cabin Gallery 9" class="w-full object-cover object-center gallery-img">
-      <img src="CabinCover.png" alt="Cabin Gallery 10" class="w-full object-cover object-center gallery-img">
+    <div class="flex flex-col">
+      <img src="Cabin3.png" alt="Cabin Gallery 1" class="gallery-img">
+      <img src="Cabin5.png" alt="Cabin Gallery 2" class="gallery-img">
+      <img src="Cabin7.png" alt="Cabin Gallery 3" class="gallery-img">
+      <img src="Cabin10.png" alt="Cabin Gallery 4" class="gallery-img">
+      <img src="Cabin13.png" alt="Cabin Gallery 5" class="gallery-img">
+      <img src="Cabin16.png" alt="Cabin Gallery 6" class="gallery-img">
+      <img src="Cabin19.png" alt="Cabin Gallery 7" class="gallery-img">
+      <img src="Cabin22.png" alt="Cabin Gallery 8" class="gallery-img">
+      <img src="Cabin25.png" alt="Cabin Gallery 9" class="gallery-img">
+      <img src="CabinCover.png" alt="Cabin Gallery 10" class="gallery-img">
     </div>
   </section>
   <script>
     // Responsive height for gallery images
     function setGalleryHeights() {
       document.querySelectorAll('.gallery-img').forEach(img => {
+        img.style.width = '100%';
+        img.style.objectFit = 'cover';
+        img.style.objectPosition = 'center';
+        img.style.display = 'block';
         img.style.height = window.innerWidth < 768 ? '50vh' : '90vh';
       });
     }
