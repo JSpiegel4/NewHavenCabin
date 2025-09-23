@@ -1,11 +1,14 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riverside Cabin — Bristol, VT</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="A riverside retreat in Bristol, Vermont. Modern amenities, stunning views, and a cozy cabin experience. Book now on Airbnb.">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <style>
     html, body {
       height: 100%;
@@ -43,116 +46,113 @@
   </style>
 </head>
 <body class="text-gray-900">
-  <!-- Book Now CTA at Top -->
-  <div class="w-full flex justify-end p-6 absolute top-0 left-0 z-50">
-    <a href="https://www.airbnb.com/rooms/1109371050075098576" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-black/80 text-white text-lg font-bold rounded-xl shadow-xl hover:bg-black transition-all">Book Now</a>
-  </div>
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex flex-col justify-center items-center fade-in" style="background: none;">
-    <div class="text-center pb-32">
-      <h1 class="text-white text-6xl md:text-8xl font-black drop-shadow-lg mb-8 tracking-tight">Riverside Cabin</h1>
-      <p class="text-white text-2xl md:text-3xl font-semibold drop-shadow mb-12">Bristol, Vermont</p>
-      <a href="#gallery" class="scroll-down inline-block mt-8" aria-label="Scroll to gallery">
-        <svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-      </a>
-    </div>
-  </section>
+  <header>
+    <nav aria-label="Main navigation" class="w-full flex justify-end p-6 absolute top-0 left-0 z-50">
+  <a href="https://www.airbnb.com/rooms/1441240008469605664?photo_id=2319500044&source_impression_id=p3_1758589476_P3Tee-OAcpHv-fzT&previous_page_section_name=1000" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-black/80 text-white text-lg font-bold rounded-xl shadow-xl hover:bg-black transition-all" aria-label="Book this cabin on Airbnb">Book Now</a>
+    </nav>
+  </header>
+  <main>
+    <section class="relative min-h-screen flex flex-col justify-center items-center fade-in" style="background: none;">
+      <div class="text-center pb-32">
+        <h1 class="text-white text-6xl md:text-8xl font-black drop-shadow-lg mb-8 tracking-tight">Riverside Cabin</h1>
+        <p class="text-white text-2xl md:text-3xl font-semibold drop-shadow mb-12">Bristol, Vermont</p>
+        <a href="#gallery" class="scroll-down inline-block mt-8" aria-label="Scroll to gallery">
+          <svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+      </div>
+    </section>
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="fade-in bg-transparent">
-    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center text-white drop-shadow-lg tracking-tight">Gallery</h2>
-    <div class="flex flex-col">
-      <img src="Cabin3.png" alt="Cabin Gallery 1" class="gallery-img" loading="lazy">
-      <img src="Cabin5.png" alt="Cabin Gallery 2" class="gallery-img" loading="lazy">
-      <img src="Cabin7.png" alt="Cabin Gallery 3" class="gallery-img" loading="lazy">
-      <img src="Cabin10.png" alt="Cabin Gallery 4" class="gallery-img" loading="lazy">
-      <img src="Cabin13.png" alt="Cabin Gallery 5" class="gallery-img" loading="lazy">
-      <img src="Cabin16.png" alt="Cabin Gallery 6" class="gallery-img" loading="lazy">
-      <img src="Cabin19.png" alt="Cabin Gallery 7" class="gallery-img" loading="lazy">
-      <img src="Cabin22.png" alt="Cabin Gallery 8" class="gallery-img" loading="lazy">
-      <img src="Cabin25.png" alt="Cabin Gallery 9" class="gallery-img" loading="lazy">
-      <img src="CabinCover.png" alt="Cabin Gallery 10" class="gallery-img" loading="lazy">
-    </div>
-  </section>
-  <script>
-    // Responsive height for gallery images
-    function setGalleryHeights() {
-      document.querySelectorAll('.gallery-img').forEach(img => {
-        img.style.width = '100%';
-        img.style.objectFit = 'cover';
-        img.style.objectPosition = 'center';
-        img.style.display = 'block';
-        img.style.height = window.innerWidth < 768 ? '50vh' : '90vh';
-      });
-    }
-    window.addEventListener('resize', setGalleryHeights);
-    window.addEventListener('DOMContentLoaded', setGalleryHeights);
-  </script>
+    <section id="gallery" class="fade-in bg-transparent" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading" class="text-4xl md:text-5xl font-bold mb-16 text-center text-white drop-shadow-lg tracking-tight">Gallery</h2>
+      <div class="flex flex-col">
+        <img src="Cabin3.png" alt="Cabin exterior with river view" class="gallery-img" loading="lazy">
+        <img src="Cabin5.png" alt="Cozy living area with fireplace" class="gallery-img" loading="lazy">
+        <img src="Cabin7.png" alt="Bedroom with queen bed and linens" class="gallery-img" loading="lazy">
+        <img src="Cabin10.png" alt="Mountain views from the porch" class="gallery-img" loading="lazy">
+        <img src="Cabin13.png" alt="Modern kitchen and dining area" class="gallery-img" loading="lazy">
+        <img src="Cabin16.png" alt="Bathroom with amenities" class="gallery-img" loading="lazy">
+        <img src="Cabin19.png" alt="High-speed internet workspace" class="gallery-img" loading="lazy">
+        <img src="Cabin22.png" alt="Wall-unit AC and comfort" class="gallery-img" loading="lazy">
+        <img src="Cabin25.png" alt="Free parking area" class="gallery-img" loading="lazy">
+        <img src="CabinCover.png" alt="Cabin cover photo with river and trees" class="gallery-img" loading="lazy">
+      </div>
+    </section>
+    <script>
+      // Responsive height for gallery images
+      function setGalleryHeights() {
+        document.querySelectorAll('.gallery-img').forEach(img => {
+          img.style.width = '100%';
+          img.style.objectFit = 'cover';
+          img.style.objectPosition = 'center';
+          img.style.display = 'block';
+          img.style.height = window.innerWidth < 768 ? '50vh' : '90vh';
+        });
+      }
+      window.addEventListener('resize', setGalleryHeights);
+      window.addEventListener('DOMContentLoaded', setGalleryHeights);
+    </script>
 
-  <!-- About Section -->
-  <section id="about" class="max-w-2xl mx-auto py-20 px-6 fade-in bg-white/80 rounded-2xl shadow-xl mt-20">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">About</h2>
-    <p class="text-lg md:text-xl text-gray-700 text-center mb-6">
-      A riverside retreat where nature and comfort meet. This one-bedroom cabin features natural wood interiors, a cozy fireplace, and tranquil views of the river and mountains. Perfect for couples or solo travelers seeking peace, adventure, and inspiration.
-    </p>
-  </section>
+    <section id="about" class="max-w-2xl mx-auto py-20 px-6 fade-in bg-white/80 rounded-2xl shadow-xl mt-20" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="text-3xl md:text-4xl font-bold mb-6 text-center">About</h2>
+      <p class="text-lg md:text-xl text-gray-700 text-center mb-6">
+        A riverside retreat where nature and comfort meet. This one-bedroom cabin features natural wood interiors, a cozy fireplace, and tranquil views of the river and mountains. Perfect for couples or solo travelers seeking peace, adventure, and inspiration.
+      </p>
+    </section>
 
-  <!-- Amenities Section -->
-  <section class="bg-white/90 py-16 fade-in rounded-3xl shadow-2xl max-w-5xl mx-auto mb-16 flex flex-col items-center justify-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-14 text-center text-gray-900 tracking-tight" style="letter-spacing:-1px;">Amenities</h2>
-    <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-10 px-2 md:px-8">
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">🌊</span>
-        <span class="font-semibold text-lg mb-1">Riverfront Access</span>
-        <span class="text-gray-500 text-sm">Private & serene</span>
+    <section class="bg-white/90 py-16 fade-in rounded-3xl shadow-2xl max-w-5xl mx-auto mb-16 flex flex-col items-center justify-center" aria-labelledby="amenities-heading">
+      <h2 id="amenities-heading" class="text-4xl md:text-5xl font-bold mb-14 text-center text-gray-900 tracking-tight" style="letter-spacing:-1px;">Amenities</h2>
+      <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-10 px-2 md:px-8">
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">🌊</span>
+          <span class="font-semibold text-lg mb-1">Riverfront Access</span>
+          <span class="text-gray-500 text-sm">Private & serene</span>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">🔥</span>
+          <span class="font-semibold text-lg mb-1">Wood Fireplace</span>
+          <span class="text-gray-500 text-sm">Cozy up on cool nights</span>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">🛏️</span>
+          <span class="font-semibold text-lg mb-1">1 Queen Bed</span>
+          <span class="text-gray-500 text-sm">Luxury linens included</span>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">🌲</span>
+          <span class="font-semibold text-lg mb-1">Mountain Views</span>
+          <span class="text-gray-500 text-sm">Breathtaking scenery</span>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">📶</span>
+          <span class="font-semibold text-lg mb-1">High-Speed Internet</span>
+          <span class="text-gray-500 text-sm">Stay connected</span>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">🍽️</span>
+          <span class="font-semibold text-lg mb-1">Full Kitchen</span>
+          <span class="text-gray-500 text-sm">Fridge & gas stove</span>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">❄️</span>
+          <span class="font-semibold text-lg mb-1">Wall-unit AC</span>
+          <span class="text-gray-500 text-sm">Cool comfort</span>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
+          <span class="text-5xl mb-3" aria-hidden="true">🚗</span>
+          <span class="font-semibold text-lg mb-1">Free Parking</span>
+          <span class="text-gray-500 text-sm">On-site & convenient</span>
+        </div>
       </div>
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">🔥</span>
-        <span class="font-semibold text-lg mb-1">Wood Fireplace</span>
-        <span class="text-gray-500 text-sm">Cozy up on cool nights</span>
-      </div>
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">🛏️</span>
-        <span class="font-semibold text-lg mb-1">1 Queen Bed</span>
-        <span class="text-gray-500 text-sm">Luxury linens included</span>
-      </div>
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">🌲</span>
-        <span class="font-semibold text-lg mb-1">Mountain Views</span>
-        <span class="text-gray-500 text-sm">Breathtaking scenery</span>
-      </div>
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">📶</span>
-        <span class="font-semibold text-lg mb-1">High-Speed Internet</span>
-        <span class="text-gray-500 text-sm">Stay connected</span>
-      </div>
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">🍽️</span>
-        <span class="font-semibold text-lg mb-1">Full Kitchen</span>
-        <span class="text-gray-500 text-sm">Fridge & gas stove</span>
-      </div>
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">❄️</span>
-        <span class="font-semibold text-lg mb-1">Wall-unit AC</span>
-        <span class="text-gray-500 text-sm">Cool comfort</span>
-      </div>
-      <div class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-md border border-gray-100">
-        <span class="text-5xl mb-3">🚗</span>
-        <span class="font-semibold text-lg mb-1">Free Parking</span>
-        <span class="text-gray-500 text-sm">On-site & convenient</span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Call to Action Section -->
-  <section class="py-20 px-6 fade-in">
-    <div class="max-w-2xl mx-auto bg-black/80 rounded-2xl shadow-xl p-10 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Reserve Your Stay</h2>
-      <p class="text-lg text-gray-200 mb-8">From <span class="font-bold text-2xl text-white">$199</span> per night</p>
-      <a href="https://www.airbnb.com/rooms/1109371050075098576" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-white text-black text-lg font-semibold rounded-xl shadow hover:bg-gray-200 transition">Book Now</a>
-    </div>
-  </section>
-
+    <section class="py-20 px-6 fade-in" aria-labelledby="cta-heading">
+      <div class="max-w-2xl mx-auto bg-black/80 rounded-2xl shadow-xl p-10 text-center">
+        <h2 id="cta-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white">Reserve Your Stay</h2>
+        <p class="text-lg text-gray-200 mb-8">From <span class="font-bold text-2xl text-white">$199</span> per night</p>
+  <a href="https://www.airbnb.com/rooms/1441240008469605664?photo_id=2319500044&source_impression_id=p3_1758589476_P3Tee-OAcpHv-fzT&previous_page_section_name=1000" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-white text-black text-lg font-semibold rounded-xl shadow hover:bg-gray-200 transition" aria-label="Book this cabin on Airbnb">Book Now</a>
+      </div>
+    </section>
+  </main>
   <footer class="text-center text-white py-10 text-sm fade-in" style="text-shadow: 0 2px 8px #000a;">
     &copy; 2025 Riverside Cabin, Bristol VT. Crafted with care.
   </footer>
