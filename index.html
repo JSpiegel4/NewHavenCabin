@@ -68,7 +68,7 @@
     <div id="gallery-container" class="flex flex-col gap-0"></div>
   </section>
   <script>
-    // Infinite scroll gallery logic
+    // Infinite scroll gallery logic with responsive height
     const images = [
       'Cabin3.png', 'Cabin5.png', 'Cabin7.png', 'Cabin10.png', 'Cabin13.png',
       'Cabin16.png', 'Cabin19.png', 'Cabin22.png', 'Cabin25.png', 'CabinCover.png'
@@ -79,7 +79,8 @@
       const img = document.createElement('img');
       img.src = images[imgIndex % images.length];
       img.alt = `Cabin Gallery ${imgIndex+1}`;
-      img.className = 'w-full h-[90vh] object-cover object-center';
+      img.className = 'w-full object-cover object-center';
+      img.style.height = window.innerWidth < 768 ? '50vh' : '90vh';
       gallery.appendChild(img);
       imgIndex++;
     }
@@ -91,34 +92,13 @@
         addImage();
       }
     });
+    // Responsive height on resize
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('#gallery-container img').forEach(img => {
+        img.style.height = window.innerWidth < 768 ? '50vh' : '90vh';
+      });
+    });
   </script>
-  <img src="Cabin13.png" alt="Cabin Photo 13" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin14.png" alt="Cabin Photo 14" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin15.png" alt="Cabin Photo 15" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin16.png" alt="Cabin Photo 16" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin17.png" alt="Cabin Photo 17" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin18.png" alt="Cabin Photo 18" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin19.png" alt="Cabin Photo 19" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin20.png" alt="Cabin Photo 20" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin21.png" alt="Cabin Photo 21" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin22.png" alt="Cabin Photo 22" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin23.png" alt="Cabin Photo 23" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin24.png" alt="Cabin Photo 24" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin25.png" alt="Cabin Photo 25" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin26.png" alt="Cabin Photo 26" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin27.png" alt="Cabin Photo 27" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin28.png" alt="Cabin Photo 28" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin29.png" alt="Cabin Photo 29" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin30.png" alt="Cabin Photo 30" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin31.png" alt="Cabin Photo 31" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin32.png" alt="Cabin Photo 32" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin33.png" alt="Cabin Photo 33" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin34.png" alt="Cabin Photo 34" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin35.png" alt="Cabin Photo 35" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin36.png" alt="Cabin Photo 36" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin37.png" alt="Cabin Photo 37" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin38.png" alt="Cabin Photo 38" class="w-full h-[80vh] object-cover object-center">
-  <img src="Cabin39.png" alt="Cabin Photo 39" class="w-full h-[80vh] object-cover object-center">
 
   </section>
 
