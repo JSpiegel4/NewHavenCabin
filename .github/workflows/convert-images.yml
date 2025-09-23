@@ -4,24 +4,33 @@ on:
   push:
     branches: [ main ]
 
+# Allow the workflow to push generated files using the provided GITHUB_TOKEN
+permissions:
+  contents: write
+
 jobs:
   convert:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y imagemagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick webp
       - name: Convert PNG/JPG to WebP
         run: |
-          mkdir -p webp-out
+          # create webp files next to originals
           for f in *.png *.jpg *.jpeg; do
             [ -f "$f" ] || continue
-            cwebp -q 80 "$f" -o "${f%.*}.webp" || convert "$f" -quality 80 "${f%.*}.webp"
+            if command -v cwebp >/dev/null 2>&1; then
+              cwebp -q 80 "$f" -o "${f%.*}.webp"
+            else
+              convert "$f" -quality 80 "${f%.*}.webp"
+            fi
           done
       - name: Commit WebP files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add *.webp || true
-          git commit -m "chore: add webp images" || echo "no changes"
-          git push origin HEAD:main || echo "push failed"
+          git add --all "*.webp" || true
+          git diff --staged --quiet || (git commit -m "chore: add webp images" && git push origin HEAD:main)
