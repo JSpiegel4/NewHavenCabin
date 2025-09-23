@@ -5,19 +5,21 @@
 <body class="text-gray-900"><a href="#m" class=sr>Skip to content</a><nav aria-label=Main class="w-full flex justify-end p-6 absolute top-0 left-0 z-50"><a href="https://www.airbnb.com/rooms/1441240008469605664?photo_id=2319500044&source_impression_id=p3_1758589476_P3Tee-OAcpHv-fzT&previous_page_section_name=1000" target=_blank rel="noopener noreferrer" class="px-8 py-4 bg-black/80 text-white text-lg font-bold rounded-xl shadow-xl">Book Now</a></nav>
 <main id=m><section class="relative min-h-screen flex flex-col justify-center items-center"><div class="text-center pb-32"><h1 class="text-white text-6xl md:text-8xl font-black">Riverside Cabin</h1><p class="text-white text-2xl md:text-3xl font-semibold">Bristol, Vermont</p><a href="#gallery" aria-label="Scroll to gallery" class="inline-block mt-8"><svg width=32 height=32 fill=none stroke=white stroke-width=2 viewBox="0 0 24 24" aria-hidden=true><path d="M12 5v14M19 12l-7 7-7-7"/></svg></a></div></section>
 <section id=gallery aria-labelledby=gh class=fade-in><h2 id=gh class="text-4xl md:text-5xl font-bold mb-16 text-center text-white">Gallery</h2><div class=g id=gallery-list>
-<img data-src=Cabin3.png alt="Cabin exterior with river view" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin5.png alt="Cozy living area with fireplace" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin7.png alt="Bedroom with queen bed" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin10.png alt="Mountain views from the porch" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin13.png alt="Kitchen" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin16.png alt="Bathroom" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin19.png alt="Workspace" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin22.png alt="AC unit" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=Cabin25.png alt="Parking" class="lazy" loading=lazy decoding=async fetchpriority=low>
-<img data-src=CabinCover.png alt="Cover" class="lazy" loading=lazy decoding=async fetchpriority=high>
+</div></section>
+<picture><source srcset="Cabin3.webp" type="image/webp"><img src="Cabin3.png" alt="Cabin exterior with river view" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin5.webp" type="image/webp"><img src="Cabin5.png" alt="Cozy living area with fireplace" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin7.webp" type="image/webp"><img src="Cabin7.png" alt="Bedroom with queen bed" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin10.webp" type="image/webp"><img src="Cabin10.png" alt="Mountain views from the porch" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin13.webp" type="image/webp"><img src="Cabin13.png" alt="Kitchen" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin16.webp" type="image/webp"><img src="Cabin16.png" alt="Bathroom" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin19.webp" type="image/webp"><img src="Cabin19.png" alt="Workspace" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin22.webp" type="image/webp"><img src="Cabin22.png" alt="AC unit" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="Cabin25.webp" type="image/webp"><img src="Cabin25.png" alt="Parking" class="lazy" loading=lazy decoding=async fetchpriority=low></picture>
+<picture><source srcset="CabinCover.webp" type="image/webp"><img src="CabinCover.png" alt="Cover" class="lazy" loading=lazy decoding=async fetchpriority=high></picture>
+</div></section>
 </div></section>
 <script>/* compact responsive sizing */const S=()=>document.querySelectorAll('.g img').forEach(i=>{i.style.height=innerWidth<768?'50vh':'90vh'});addEventListener('resize',S);addEventListener('DOMContentLoaded',S);
-/* compact lazy loader */(function(){const L=document.querySelectorAll('img.lazy');if(!L.length)return; if('IntersectionObserver' in self){let o=new IntersectionObserver((e,ob)=>e.forEach(en=>{if(en.isIntersecting){let t=en.target; t.src=t.dataset.src; t.onload=()=>t.style.opacity=1; ob.unobserve(t)}}),{rootMargin:'200px'});L.forEach(i=>{i.style.opacity=0; o.observe(i)});}else{L.forEach(i=>i.src=i.dataset.src)} })();
+/* compact lazy loader */(function(){const L=document.querySelectorAll('img.lazy');if(!L.length)return;function setSrc(t){try{if(t.dataset && t.dataset.src) t.src=t.dataset.src; const p=t.closest? t.closest('picture') : null; if(p){const s=p.querySelector('source'); if(s && s.dataset && s.dataset.srcset) s.srcset=s.dataset.srcset;} t.onload=()=>t.style.opacity=1}catch(e){} }if('IntersectionObserver' in self){let o=new IntersectionObserver((entries,ob)=>entries.forEach(en=>{if(en.isIntersecting){setSrc(en.target);ob.unobserve(en.target)}}),{rootMargin:'200px'});L.forEach(i=>{if(!i.src) i.style.opacity=0; o.observe(i)});}else{L.forEach(i=>setSrc(i))}})();
 </script>
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Riverside Cabin","description":"Riverside retreat in Bristol, VT","image":["/CabinCover.png"],"url":"https://www.airbnb.com/rooms/1441240008469605664","address":{"@type":"PostalAddress","addressLocality":"Bristol","addressRegion":"VT","addressCountry":"US"}}</script>
 <section id=about class="max-w-2xl mx-auto py-20 px-6 fade-in bg-white/80 rounded-2xl shadow-xl mt-20"><h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">About</h2><p class="text-lg md:text-xl text-gray-700 text-center mb-6">A riverside retreat where nature and comfort meet. Cozy one-bedroom with river views.</p></section>
