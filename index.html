@@ -7,7 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riverside Cabin — Bristol, VT</title>
   <meta name="description" content="A riverside retreat in Bristol, Vermont. Modern amenities, stunning views, and a cozy cabin experience. Book now on Airbnb.">
+  <meta property="og:title" content="Riverside Cabin — Bristol, VT">
+  <meta property="og:description" content="A riverside retreat in Bristol, Vermont. Modern amenities, stunning views, and a cozy cabin experience. Book now on Airbnb.">
+  <meta property="og:image" content="/CabinCover.png">
+  <meta property="og:type" content="lodging">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <!-- Preload background cover to avoid hero flicker -->
+  <link rel="preload" as="image" href="/CabinCover.png">
   <script src="https://cdn.tailwindcss.com" defer></script>
   <style>
     html, body {
@@ -36,7 +43,9 @@
       box-sizing: border-box;
       border: none !important;
     }
-    .fade-in { animation: fadeIn 1.5s ease; }
+  /* reduce layout shift by reserving image aspect ratio for gallery images */
+  .gallery-img { aspect-ratio: 16/9; width:100%; display:block; }
+  .fade-in { animation: fadeIn 1.5s ease; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .scroll-down { animation: bounce 2s infinite; }
     @keyframes bounce {
@@ -46,6 +55,12 @@
   </style>
 </head>
 <body class="text-gray-900">
+  <a class="sr-only focus:not-sr-only absolute left-4 top-4 z-60 bg-white/90 text-black px-3 py-2 rounded" href="#main">Skip to content</a>
+  <style>
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .focus\:not-sr-only:focus { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: normal; }
+    nav a:focus { outline: 3px solid rgba(255,255,255,0.8); outline-offset: 3px; }
+  </style>
   <header>
     <nav aria-label="Main navigation" class="w-full flex justify-end p-6 absolute top-0 left-0 z-50">
   <a href="https://www.airbnb.com/rooms/1441240008469605664?photo_id=2319500044&source_impression_id=p3_1758589476_P3Tee-OAcpHv-fzT&previous_page_section_name=1000" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-black/80 text-white text-lg font-bold rounded-xl shadow-xl hover:bg-black transition-all" aria-label="Book this cabin on Airbnb">Book Now</a>
@@ -64,17 +79,17 @@
 
     <section id="gallery" class="fade-in bg-transparent" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading" class="text-4xl md:text-5xl font-bold mb-16 text-center text-white drop-shadow-lg tracking-tight">Gallery</h2>
-      <div class="flex flex-col">
-        <img src="Cabin3.png" alt="Cabin exterior with river view" class="gallery-img" loading="lazy">
-        <img src="Cabin5.png" alt="Cozy living area with fireplace" class="gallery-img" loading="lazy">
-        <img src="Cabin7.png" alt="Bedroom with queen bed and linens" class="gallery-img" loading="lazy">
-        <img src="Cabin10.png" alt="Mountain views from the porch" class="gallery-img" loading="lazy">
-        <img src="Cabin13.png" alt="Modern kitchen and dining area" class="gallery-img" loading="lazy">
-        <img src="Cabin16.png" alt="Bathroom with amenities" class="gallery-img" loading="lazy">
-        <img src="Cabin19.png" alt="High-speed internet workspace" class="gallery-img" loading="lazy">
-        <img src="Cabin22.png" alt="Wall-unit AC and comfort" class="gallery-img" loading="lazy">
-        <img src="Cabin25.png" alt="Free parking area" class="gallery-img" loading="lazy">
-        <img src="CabinCover.png" alt="Cabin cover photo with river and trees" class="gallery-img" loading="lazy">
+      <div class="flex flex-col" id="gallery-list">
+        <img data-src="Cabin3.png" alt="Cabin exterior with river view" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin5.png" alt="Cozy living area with fireplace" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin7.png" alt="Bedroom with queen bed and linens" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin10.png" alt="Mountain views from the porch" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin13.png" alt="Modern kitchen and dining area" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin16.png" alt="Bathroom with amenities" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin19.png" alt="High-speed internet workspace" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin22.png" alt="Wall-unit AC and comfort" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="Cabin25.png" alt="Free parking area" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
+        <img data-src="CabinCover.png" alt="Cabin cover photo with river and trees" class="gallery-img lazy" loading="lazy" decoding="async" fetchpriority="low">
       </div>
     </section>
     <script>
@@ -90,6 +105,47 @@
       }
       window.addEventListener('resize', setGalleryHeights);
       window.addEventListener('DOMContentLoaded', setGalleryHeights);
+    </script>
+
+    <script>
+      // Lightweight lazy loader with IntersectionObserver
+      (function(){
+        const lazyImages = document.querySelectorAll('img.lazy');
+        if('IntersectionObserver' in window){
+          const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if(entry.isIntersecting){
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                img.addEventListener('load', () => img.style.opacity = '1');
+                obs.unobserve(img);
+              }
+            });
+          }, {rootMargin: '200px 0px'});
+          lazyImages.forEach(img => { img.style.opacity = '0'; io.observe(img); });
+        } else {
+          // Fallback: eager load
+          lazyImages.forEach(img => { img.src = img.dataset.src; img.style.opacity = '1'; });
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Riverside Cabin",
+      "description": "A riverside retreat in Bristol, Vermont. Cozy one-bedroom cabin with river views.",
+      "image": ["/CabinCover.png"],
+      "url": "https://www.airbnb.com/rooms/1441240008469605664",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bristol",
+        "addressRegion": "VT",
+        "addressCountry": "US"
+      }
+    }
     </script>
 
     <section id="about" class="max-w-2xl mx-auto py-20 px-6 fade-in bg-white/80 rounded-2xl shadow-xl mt-20" aria-labelledby="about-heading">
