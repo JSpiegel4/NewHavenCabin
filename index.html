@@ -88,6 +88,9 @@
 		</section>
 	</main>
 	<footer class="text-center text-white py-10 text-sm fade-in">&copy; 2025 Riverside Cabin, Bristol VT.</footer>
+	<noscript>
+		<style>.g img{height:auto!important;opacity:1!important}</style>
+	</noscript>
 	<script>
 			// Responsive gallery image heights and lazy loader (tolerant)
 			(function(){
@@ -96,6 +99,45 @@
 				const L=document.querySelectorAll('img[loading="lazy"]');if(!L.length)return;function setSrc(t){try{if(t.dataset&&t.dataset.src)t.src=t.dataset.src;const p=t.closest?t.closest('picture'):null;if(p){const s=p.querySelector('source');if(s&&s.dataset&&s.dataset.srcset)s.srcset=s.dataset.srcset;}t.onload=()=>t.style.opacity=1}catch(e){}}if('IntersectionObserver'in self){let o=new IntersectionObserver((e,ob)=>e.forEach(en=>{if(en.isIntersecting){setSrc(en.target);ob.unobserve(en.target)}}),{rootMargin:'200px'});L.forEach(i=>{if(!i.src)i.style.opacity=0;o.observe(i)});}else{L.forEach(i=>setSrc(i))}
 			})();
 	</script>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Riverside Cabin","description":"Riverside retreat in Bristol, VT","image":["/CabinCover.webp"],"url":"https://www.airbnb.com/rooms/1441240008469605664","address":{"@type":"PostalAddress","addressLocality":"Bristol","addressRegion":"VT","addressCountry":"US"}}</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "LodgingBusiness",
+		"name": "Riverside Cabin",
+		"description": "Riverside retreat in Bristol, VT — cozy cabin with river views",
+		"image": [
+			"/CabinCover.webp",
+			"/Cabin3.webp",
+			"/Cabin5.webp",
+			"/Cabin7.webp"
+		],
+		"url": "https://www.airbnb.com/rooms/1441240008469605664",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Bristol",
+			"addressRegion": "VT",
+			"addressCountry": "US"
+		},
+		"priceRange": "$$",
+		"amenityFeature": [
+			{
+				"@type": "LocationFeatureSpecification",
+				"name": "Riverfront",
+				"value": true
+			},
+			{
+				"@type": "LocationFeatureSpecification",
+				"name": "Fireplace",
+				"value": true
+			},
+			{
+				"@type": "LocationFeatureSpecification",
+				"name": "Mountain Views",
+				"value": true
+			}
+		],
+		"numberOfRooms": 1
+	}
+	</script>
 </body>
 </html>
