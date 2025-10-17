@@ -3,6 +3,8 @@ name: Lighthouse CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   lighthouse:
@@ -14,19 +16,20 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install LHCI
-        run: npm install -g @lhci/cli@0.10.x
+        run: npm install -g @lhci/cli@0.13.x
 
       - name: Run Lighthouse CI
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          lhci autorun --url=https://JSpiegel4.github.io/NewHavenCabin/ --collect.numberOfRuns=1 --upload.artifact=true
+          lhci autorun --url=https://JSpiegel4.github.io/NewHavenCabin/ --collect.numberOfRuns=3 --upload.target=temporary-public-storage
 
       - name: Upload LHCI artifacts
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: lighthouse-report
           path: .lighthouseci
